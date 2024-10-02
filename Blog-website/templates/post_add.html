@@ -1,0 +1,22 @@
+    
+<style>
+   
+    input,textarea,select{
+        width: 100%;
+    }
+    
+</style>
+
+<h1>Post qo'shish sahifasi</h1>
+    <form action="" method="POST">{%csrf_token%}
+        <table> 
+            {%for f in form%}
+            <tr>
+                <td>{{f.label}}</td>
+                <td>{{f}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+        <input class="submit" type="submit" value="Qo'shish">
+    </form>
+    <a href="{%url 'blog:blog'%}">Go Gome</a>

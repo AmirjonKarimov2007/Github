@@ -1,0 +1,46 @@
+{%extends 'main.html'%}
+{%load static%}
+{%block content%}
+<br><br><br><br><br><br><br><br><br><br>
+<div class="auth">
+    <div class="card">
+      <div class="auth__header text-center">
+        <a href="/">
+          <img src="{%static 'images/icon.svg'%}" alt="icon" />
+        </a>
+        <h3>Ro'yxatdan o'tish</h3>
+        <p>Yangi bitiruvchi sahifasini yarating</p>
+      </div>
+
+      <form action="{%url 'users:register'%}" method="post" class="form auth__form">{%csrf_token%}
+        <!-- Input:Text -->
+         {%for f in form%}
+        <div class="form__field">
+          <label for="formInput#text">{{f.label}}</label>
+          {{f}}
+        </div>
+        {%endfor%}
+        <div class="auth__actions">
+          <input class="btn btn--sub btn--lg" type="submit" value="Ro'yxatdan o'tish" />
+        </div>
+      </form>
+      <div class="auth__alternative">
+        <p>Shahsiy sahifangiz yo'qmi?</p>
+        <a href="{%url 'users:register'%}">Ro'yxtdan o'tish</a>
+      </div>
+    </div>
+  </div>
+<!-- 
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      {{request.user.first_name}}
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Mening Sahifam</a>
+      <a class="dropdown-item" href="#">Sozlamalar</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item btn btn-primary " href="{%url 'users:logout' %}" style="color: red;">Chiqish</a>
+    </div>
+  </div>     -->
+{%endblock content%}
